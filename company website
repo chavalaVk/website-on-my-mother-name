@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakshathramma – All Works & Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9933a;
+    --gold-light: #e8b96a;
+    --gold-pale: #f5e2b8;
+    --dark: #0d0a06;
+    --dark-2: #1a1408;
+    --dark-3: #2a1f0f;
+    --cream: #fdf6e9;
+    --text: #e8d9bc;
+    --text-muted: #a08b6a;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+ 
+  /* ── STARFIELD ── */
+  #stars {
+    position: fixed; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse at 20% 30%, #1c1000 0%, #0d0a06 60%);
+    overflow: hidden;
+  }
+  #stars::before, #stars::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(201,147,58,.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(201,147,58,.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 8%, rgba(232,185,106,.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 25%, rgba(201,147,58,.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 55%, rgba(201,147,58,.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 88% 12%, rgba(232,185,106,.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 70%, rgba(201,147,58,.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(201,147,58,.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 92% 90%, rgba(232,185,106,.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 65%, rgba(201,147,58,.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 75%, rgba(201,147,58,.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 15% 90%, rgba(232,185,106,.5) 0%, transparent 100%);
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  #stars::after {
+    background-image:
+      radial-gradient(1px 1px at 20% 20%, rgba(201,147,58,.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 55%, rgba(201,147,58,.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 80% 35%, rgba(232,185,106,.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 90%, rgba(201,147,58,.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 85%, rgba(232,185,106,.7) 0%, transparent 100%);
+    animation-delay: 3s;
+    animation-duration: 8s;
+  }
+  @keyframes twinkle {
+    0%   { opacity: .6; }
+    50%  { opacity: 1; }
+    100% { opacity: .7; }
+  }
+ 
+  /* ── HERO ── */
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    gap: 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,147,58,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+ 
+  .ornament {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold);
+    letter-spacing: .5em;
+    margin-bottom: 24px;
+    opacity: .7;
+    animation: fadeDown .8s ease both;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(.85rem, 2vw, 1.1rem);
+    letter-spacing: .35em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeDown .8s .15s ease both;
+  }
+  .hero-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 9vw, 7.5rem);
+    line-height: 1;
+    letter-spacing: .04em;
+    background: linear-gradient(135deg, #c9933a 0%, #f5e2b8 40%, #e8b96a 60%, #c9933a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeDown .9s .25s ease both;
+    text-shadow: none;
+  }
+  .hero-divider {
+    width: 180px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 28px auto;
+    animation: fadeIn 1s .6s ease both;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+    max-width: 540px;
+    line-height: 1.7;
+    animation: fadeDown .8s .7s ease both;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    color: var(--gold);
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    animation: fadeIn 1s 1.4s ease both;
+  }
+  .scroll-hint span { display: block; width: 1px; height: 48px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+ 
+  /* ── SECTION ── */
+  section {
+    position: relative; z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: .85rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 10px;
+    opacity: .8;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    text-align: center;
+    letter-spacing: .08em;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .section-line {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 56px;
+  }
+ 
+  /* ── SERVICE GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: linear-gradient(135deg, rgba(42,31,15,.9) 0%, rgba(26,20,8,.95) 100%);
+    border: 1px solid rgba(201,147,58,.18);
+    border-radius: 4px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    cursor: default;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,147,58,.45);
+    box-shadow: 0 20px 60px rgba(201,147,58,.1);
+  }
+  .card:hover::before { opacity: 1; }
+ 
+  .card-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(201,147,58,.4));
+    transition: transform .3s ease;
+  }
+  .card:hover .card-icon { transform: scale(1.15); }
+ 
+  .card-cat {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: .75rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    opacity: .8;
+  }
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: .06em;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+  .card-desc {
+    font-size: .95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+  .card-tags {
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tag {
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: rgba(201,147,58,.1);
+    border: 1px solid rgba(201,147,58,.25);
+    color: var(--gold);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+ 
+  /* ── CATEGORIES ── */
+  .cat-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .cat-btn {
+    font-family: 'Cinzel', serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgba(201,147,58,.3);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .cat-btn:hover, .cat-btn.active {
+    background: rgba(201,147,58,.12);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+ 
+  /* ── BANNER STRIP ── */
+  .banner {
+    position: relative; z-index: 1;
+    background: linear-gradient(135deg, var(--dark-3), var(--dark-2));
+    border-top: 1px solid rgba(201,147,58,.2);
+    border-bottom: 1px solid rgba(201,147,58,.2);
+    padding: 60px 32px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,147,58,.06) 0%, transparent 70%);
+  }
+  .banner-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    font-weight: 300;
+    color: var(--gold-pale);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative; z-index: 1;
+  }
+  .banner-quote em {
+    color: var(--gold-light);
+    font-style: normal;
+    font-weight: 600;
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(201,147,58,.15);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: .2em;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: .8rem;
+    color: var(--text-muted);
+    letter-spacing: .15em;
+  }
+ 
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    section { padding: 60px 18px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+ 
+<div id="stars"></div>
+ 
+<!-- HERO -->
+<div class="hero">
+  <p class="ornament">✦ ✦ ✦</p>
+  <p class="hero-sub">Welcome to</p>
+  <h1 class="hero-name">Nakshathramma</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">A legacy of skilled craftsmanship & dedicated service — every work done with pride and precision.</p>
+  <div class="scroll-hint">Explore<span></span></div>
+</div>
+ 
+<!-- BANNER -->
+<div class="banner">
+  <p class="banner-quote">"From the strength of skilled hands comes the beauty of the world — <em>every craft tells a story</em>."</p>
+</div>
+ 
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label reveal">Our Offerings</p>
+  <h2 class="section-title reveal">All Works & Services</h2>
+  <div class="section-line reveal"></div>
+ 
+  <div class="cat-bar reveal" id="catBar">
+    <button class="cat-btn active" data-cat="all">All</button>
+    <button class="cat-btn" data-cat="construction">Construction</button>
+    <button class="cat-btn" data-cat="wood">Woodwork</button>
+    <button class="cat-btn" data-cat="metal">Metal & Welding</button>
+    <button class="cat-btn" data-cat="electrical">Electrical</button>
+    <button class="cat-btn" data-cat="plumbing">Plumbing</button>
+    <button class="cat-btn" data-cat="painting">Painting</button>
+    <button class="cat-btn" data-cat="home">Home Services</button>
+    <button class="cat-btn" data-cat="outdoor">Outdoor</button>
+    <button class="cat-btn" data-cat="auto">Automotive</button>
+  </div>
+ 
+  <div class="grid" id="serviceGrid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Nakshathramma</p>
+  <p class="footer-sub">✦ Skilled Hands · Trusted Service · Timeless Craft ✦</p>
+</footer>
+ 
+<script>
+const services = [
+  // Construction
+  { icon:'🏗️', cat:'construction', catLabel:'Construction', title:'Masonry & Bricklaying', desc:'Building strong walls, foundations, arches, and structures using brick, stone, and mortar with expert craftsmanship.', tags:['Brickwork','Stonework','Foundations','Walls'] },
+  { icon:'🪚', cat:'construction', catLabel:'Construction', title:'Concrete Works', desc:'Mixing, pouring, and finishing concrete for slabs, pathways, columns, and structural elements of all sizes.', tags:['Slabs','Flooring','Columns','Pathways'] },
+  { icon:'🏠', cat:'construction', catLabel:'Construction', title:'Roofing', desc:'Installing, repairing, and waterproofing roofs — from traditional tile to modern sheet metal and flat roofs.', tags:['Tile Roofing','Sheet Metal','Waterproofing','Repairs'] },
+  { icon:'🧱', cat:'construction', catLabel:'Construction', title:'Plastering & Rendering', desc:'Smooth interior and exterior plastering, textured finishes, and wall rendering for long-lasting beauty.', tags:['Interior','Exterior','Textured Finish'] },
+ 
+  // Woodwork
+  { icon:'🪵', cat:'wood', catLabel:'Woodwork', title:'Carpentry', desc:'Custom furniture, cabinets, doors, window frames, wardrobes, and shelving crafted from quality timber.', tags:['Furniture','Cabinets','Doors','Frames'] },
+  { icon:'🛋️', cat:'wood', catLabel:'Woodwork', title:'Furniture Making', desc:'Handcrafted tables, chairs, beds, and storage units tailored to your taste and space requirements.', tags:['Tables','Chairs','Beds','Storage'] },
+  { icon:'🚪', cat:'wood', catLabel:'Woodwork', title:'Door & Window Fitting', desc:'Installation and repair of wooden doors, shutters, window frames, and sliding panels.', tags:['Doors','Windows','Shutters','Installation'] },
+  { icon:'🪑', cat:'wood', catLabel:'Woodwork', title:'Wood Polishing & Finishing', desc:'Sanding, staining, varnishing, and lacquering wood surfaces to a flawless, lasting finish.', tags:['Polishing','Varnishing','Staining','Restoration'] },
+ 
+  // Metal & Welding
+  { icon:'🔧', cat:'metal', catLabel:'Metal & Welding', title:'Welding', desc:'MIG, TIG, and arc welding for gates, grilles, frames, structural steel, and custom metalwork of any complexity.', tags:['MIG','TIG','Arc','Structural'] },
+  { icon:'⚙️', cat:'metal', catLabel:'Metal & Welding', title:'Metal Fabrication', desc:'Cutting, bending, and assembling metal parts for railings, staircases, sheds, and industrial components.', tags:['Railings','Staircases','Sheds','Custom Parts'] },
+  { icon:'🛡️', cat:'metal', catLabel:'Metal & Welding', title:'Grille & Gate Work', desc:'Designing and installing security grilles, decorative gates, fences, and compound walls in iron or steel.', tags:['Gates','Grilles','Fences','Security'] },
+  { icon:'🔩', cat:'metal', catLabel:'Metal & Welding', title:'Sheet Metal Work', desc:'Roofing sheets, ductwork, cladding, and custom sheet metal forming for industrial and residential use.', tags:['Ducts','Cladding','Roofing','Industrial'] },
+ 
+  // Electrical
+  { icon:'⚡', cat:'electrical', catLabel:'Electrical', title:'Electrical Wiring', desc:'Complete house wiring, circuit installation, switchboard fitting, and rewiring of old or faulty systems.', tags:['House Wiring','Switchboards','Circuits','Rewiring'] },
+  { icon:'💡', cat:'electrical', catLabel:'Electrical', title:'Lighting Installation', desc:'Indoor and outdoor lighting setup including LED panels, decorative lights, street lights, and spotlights.', tags:['LED','Outdoor','Indoor','Spotlights'] },
+  { icon:'🔌', cat:'electrical', catLabel:'Electrical', title:'Appliance Fitting', desc:'Safe installation of fans, AC units, geysers, ovens, and all household electrical appliances.', tags:['AC','Fans','Geysers','Appliances'] },
+  { icon:'🏭', cat:'electrical', catLabel:'Electrical', title:'Industrial Electrical Work', desc:'Three-phase wiring, motor connections, control panels, and electrical maintenance for factories and workshops.', tags:['3-Phase','Motors','Panels','Maintenance'] },
+ 
+  // Plumbing
+  { icon:'🚿', cat:'plumbing', catLabel:'Plumbing', title:'Plumbing Installation', desc:'Full plumbing systems for new constructions — pipes, fittings, water supply lines, and drainage systems.', tags:['Pipes','Fittings','Supply','Drainage'] },
+  { icon:'🔧', cat:'plumbing', catLabel:'Plumbing', title:'Leak Repairs', desc:'Detecting and fixing leaks in pipes, joints, taps, and tanks — fast and reliable solutions every time.', tags:['Leaks','Taps','Tanks','Pipes'] },
+  { icon:'🛁', cat:'plumbing', catLabel:'Plumbing', title:'Bathroom Fitting', desc:'Complete bathroom installation including toilets, washbasins, shower units, bathtubs, and accessories.', tags:['Toilets','Showers','Basins','Fittings'] },
+  { icon:'💧', cat:'plumbing', catLabel:'Plumbing', title:'Water Tank & Pump Works', desc:'Installing overhead tanks, sump pits, motor pumps, and borewell connections for reliable water supply.', tags:['Tanks','Pumps','Borewell','Sump'] },
+ 
+  // Painting
+  { icon:'🎨', cat:'painting', catLabel:'Painting', title:'Interior Painting', desc:'Smooth emulsion, texture, and decorative wall painting for bedrooms, halls, and all interior spaces.', tags:['Emulsion','Texture','Decorative','Interior'] },
+  { icon:'🖌️', cat:'painting', catLabel:'Painting', title:'Exterior Painting', desc:'Weather-resistant exterior coatings to protect and beautify building facades, compound walls, and roofs.', tags:['Weather-Resistant','Facades','Walls','Roofs'] },
+  { icon:'🏗️', cat:'painting', catLabel:'Painting', title:'Metal & Wood Painting', desc:'Primer, enamel, and protective coatings for gates, furniture, pipes, and all metal or wood surfaces.', tags:['Enamel','Primer','Protective','Metal'] },
+  { icon:'✨', cat:'painting', catLabel:'Painting', title:'Waterproofing Coatings', desc:'Specialised waterproof coatings for terraces, bathrooms, and basements to prevent seepage and dampness.', tags:['Terraces','Bathrooms','Seepage','Damp-proof'] },
+ 
+  // Home Services
+  { icon:'🧹', cat:'home', catLabel:'Home Services', title:'Deep Cleaning', desc:'Thorough cleaning of homes, offices, and commercial spaces — floors, walls, windows, kitchens, and bathrooms.', tags:['Floors','Windows','Kitchens','Offices'] },
+  { icon:'🛠️', cat:'home', catLabel:'Home Services', title:'General Repairs & Maintenance', desc:'All minor repairs — leaking pipes, broken tiles, faulty switches, squeaky doors, and everyday fixes.', tags:['Tiles','Switches','Doors','Quick Fixes'] },
+  { icon:'🪟', cat:'home', catLabel:'Home Services', title:'Tiling & Flooring', desc:'Laying floor tiles, wall tiles, marble, granite, and vinyl flooring with precise alignment and grouting.', tags:['Floor Tiles','Wall Tiles','Marble','Vinyl'] },
+  { icon:'❄️', cat:'home', catLabel:'Home Services', title:'AC & Appliance Service', desc:'Servicing, cleaning, and repairing air conditioners, refrigerators, washing machines, and home appliances.', tags:['AC Service','Refrigerator','Washing Machine','Repairs'] },
+ 
+  // Outdoor
+  { icon:'🌿', cat:'outdoor', catLabel:'Outdoor', title:'Landscaping & Gardening', desc:'Designing and maintaining beautiful gardens, lawns, flower beds, pathways, and outdoor spaces.', tags:['Gardens','Lawns','Flower Beds','Pathways'] },
+  { icon:'🪴', cat:'outdoor', catLabel:'Outdoor', title:'Tree Trimming & Removal', desc:'Safe trimming, pruning, and removal of trees and overgrown branches to keep your property clean and safe.', tags:['Trimming','Pruning','Removal','Safety'] },
+  { icon:'🏕️', cat:'outdoor', catLabel:'Outdoor', title:'Fencing & Boundary Walls', desc:'Constructing PVC, wire mesh, brick, and compound boundary walls and fences for privacy and security.', tags:['PVC','Wire Mesh','Brick','Compound Wall'] },
+  { icon:'🏊', cat:'outdoor', catLabel:'Outdoor', title:'Paving & Kerbing', desc:'Laying paving stones, concrete kerbs, and interlocking bricks for driveways, pathways, and outdoor areas.', tags:['Paving Stones','Driveways','Kerbs','Interlocking'] },
+ 
+  // Automotive
+  { icon:'🚗', cat:'auto', catLabel:'Automotive', title:'Auto Mechanic Services', desc:'Engine checks, oil changes, brake repairs, tyre rotations, and general vehicle servicing for all car types.', tags:['Engine','Brakes','Tyres','Servicing'] },
+  { icon:'🔨', cat:'auto', catLabel:'Automotive', title:'Panel Beating & Bodywork', desc:'Straightening dented panels, repairing accident damage, and restoring vehicle bodies to original shape.', tags:['Panel Beating','Dents','Body Repair','Restoration'] },
+  { icon:'🎨', cat:'auto', catLabel:'Automotive', title:'Auto Painting & Detailing', desc:'Professional vehicle spray painting, touch-ups, polishing, and full detailing for a showroom finish.', tags:['Spray Paint','Touch-up','Polish','Detailing'] },
+  { icon:'⚙️', cat:'auto', catLabel:'Automotive', title:'Two-Wheeler Repairs', desc:'Servicing and repairing motorcycles, scooters, and bicycles — engine, brakes, gears, and electrical systems.', tags:['Motorcycles','Scooters','Bicycles','Electrical'] },
+];
+ 
+const grid = document.getElementById('serviceGrid');
+const catBar = document.getElementById('catBar');
+ 
+function renderCards(filter = 'all') {
+  const filtered = filter === 'all' ? services : services.filter(s => s.cat === filter);
+  grid.innerHTML = '';
+  filtered.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'card reveal';
+    card.style.transitionDelay = (i % 4) * 0.06 + 's';
+    card.innerHTML = `
+      <span class="card-icon">${s.icon}</span>
+      <div class="card-cat">${s.catLabel}</div>
+      <div class="card-title">${s.title}</div>
+      <p class="card-desc">${s.desc}</p>
+      <div class="card-tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    `;
+    grid.appendChild(card);
+  });
+  // trigger reveal
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.card.reveal').forEach(el => {
+      observer.observe(el);
+    });
+  });
+}
+ 
+// Category filter
+catBar.addEventListener('click', e => {
+  if (!e.target.matches('.cat-btn')) return;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderCards(e.target.dataset.cat);
+});
+ 
+// Intersection Observer for reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+ 
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+ 
+renderCards();
+</script>
